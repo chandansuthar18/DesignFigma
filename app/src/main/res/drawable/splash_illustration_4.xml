@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="280dp"
+    android:height="280dp"
+    android:viewportWidth="280"
+    android:viewportHeight="280">
+
+    <!-- Background Circle -->
+    <path
+        android:name="background_circle"
+        android:fillColor="#252A45"
+        android:pathData="M140,140 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"/>
+
+    <!-- Trophy Stand -->
+    <path
+        android:name="trophy_stand"
+        android:strokeWidth="4"
+        android:strokeColor="#FFD6B0"
+        android:strokeLineCap="round"
+        android:pathData="M140,100 L140,140"/>
+
+    <!-- Trophy Cup -->
+    <path
+        android:name="trophy_cup"
+        android:fillColor="#FF8C5A"
+        android:pathData="M120,80 L160,80 L170,110 L110,110 L120,80 Z"/>
+
+    <path
+        android:name="trophy_details_1"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:pathData="M130,110 L130,130"/>
+
+    <path
+        android:name="trophy_details_2"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:pathData="M150,110 L150,130"/>
+
+    <!-- Handles -->
+    <path
+        android:name="trophy_handle_left"
+        android:strokeWidth="3"
+        android:strokeColor="#FFD6B0"
+        android:pathData="M110,95 L90,100 L90,115"/>
+
+    <path
+        android:name="trophy_handle_right"
+        android:strokeWidth="3"
+        android:strokeColor="#FFD6B0"
+        android:pathData="M170,95 L190,100 L190,115"/>
+
+    <!-- Star Badge -->
+    <path
+        android:name="star_badge"
+        android:fillColor="#FFD6B0"
+        android:pathData="M200,180 L202,186 L208,186 L203,190 L205,196 L200,192 L195,196 L197,190 L192,186 L198,186 Z"/>
+
+    <!-- Flag/Milestone Markers -->
+    <path
+        android:name="flag_pole_1"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:pathData="M60,160 L60,200"/>
+
+    <path
+        android:name="flag_1"
+        android:fillColor="#4A6FA5"
+        android:pathData="M60,160 L80,170 L60,180 Z"/>
+
+    <path
+        android:name="flag_pole_2"
+        android:strokeWidth="2"
+        android:strokeColor="#FF8C5A"
+        android:pathData="M220,140 L220,180"/>
+
+    <path
+        android:name="flag_2"
+        android:fillColor="#FF8C5A"
+        android:pathData="M220,140 L240,150 L220,160 Z"/>
+</vector>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="280dp"
+    android:height="280dp"
+    android:viewportWidth="280"
+    android:viewportHeight="280">
+
+    <!-- Background Circle -->
+    <path
+        android:name="background_circle"
+        android:fillColor="#252A45"
+        android:pathData="M140,140 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"/>
+
+    <!-- Decorative Circles -->
+    <path
+        android:name="decorative_circle_1"
+        android:fillColor="#FF8C5A"
+        android:fillAlpha="0.3"
+        android:pathData="M80,80 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0"/>
+
+    <path
+        android:name="decorative_circle_2"
+        android:fillColor="#FF8C5A"
+        android:fillAlpha="0.2"
+        android:pathData="M200,60 m-15,0 a15,15 0 1,1 30,0 a15,15 0 1,1 -30,0"/>
+
+    <path
+        android:name="decorative_circle_3"
+        android:fillColor="#4A6FA5"
+        android:fillAlpha="0.2"
+        android:pathData="M220,180 m-25,0 a25,25 0 1,1 50,0 a25,25 0 1,1 -50,0"/>
+
+    <!-- Main Illustration - Two People Shaking Hands -->
+    <path
+        android:name="handshake_line"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M100,120 L120,100 L140,120 L160,100 L180,120"/>
+
+    <path
+        android:name="person1_head"
+        android:fillColor="#FF8C5A"
+        android:pathData="M110,90 m-15,0 a15,15 0 1,1 30,0 a15,15 0 1,1 -30,0"/>
+
+    <path
+        android:name="person2_head"
+        android:fillColor="#4A6FA5"
+        android:pathData="M170,90 m-15,0 a15,15 0 1,1 30,0 a15,15 0 1,1 -30,0"/>
+
+    <!-- Bodies -->
+    <path
+        android:name="person1_body"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M110,105 L110,150"/>
+
+    <path
+        android:name="person2_body"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M170,105 L170,150"/>
+
+    <!-- Arms - Shaking Hands -->
+    <path
+        android:name="handshake_arms"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M110,130 L130,140 L150,130"/>
+
+    <!-- Stars -->
+    <path
+        android:name="star_1"
+        android:fillColor="#FFD6B0"
+        android:fillAlpha="0.8"
+        android:pathData="M50,50 L52,56 L58,56 L53,60 L55,66 L50,62 L45,66 L47,60 L42,56 L48,56 Z"/>
+
+    <path
+        android:name="star_2"
+        android:fillColor="#FFD6B0"
+        android:fillAlpha="0.8"
+        android:pathData="M230,40 L232,46 L238,46 L233,50 L235,56 L230,52 L225,56 L227,50 L222,46 L228,46 Z"/>
+</vector>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1071672930523",
+    "firebase_url": "https://goalmanagement-8f81e-default-rtdb.firebaseio.com",
+    "project_id": "goalmanagement-8f81e",
+    "storage_bucket": "goalmanagement-8f81e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071672930523:android:8a058b315829d736305cfe",
+        "android_client_info": {
+          "package_name": "com.example.designfigma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgrK_Nzt6UtX42aQejYOjS7KulRHrYjsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

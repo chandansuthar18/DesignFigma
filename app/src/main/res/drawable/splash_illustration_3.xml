@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="280dp"
+    android:height="280dp"
+    android:viewportWidth="280"
+    android:viewportHeight="280">
+
+    <!-- Background Circle -->
+    <path
+        android:name="background_circle"
+        android:fillColor="#252A45"
+        android:pathData="M140,140 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"/>
+
+    <!-- Target/Goal Illustration -->
+    <path
+        android:name="target_outer"
+        android:strokeWidth="3"
+        android:strokeColor="#FF8C5A"
+        android:fillColor="#00000000"
+        android:pathData="M140,140 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/>
+
+    <path
+        android:name="target_middle"
+        android:strokeWidth="3"
+        android:strokeColor="#4A6FA5"
+        android:fillColor="#00000000"
+        android:pathData="M140,140 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0"/>
+
+    <path
+        android:name="target_inner"
+        android:strokeWidth="3"
+        android:strokeColor="#FFD6B0"
+        android:fillColor="#00000000"
+        android:pathData="M140,140 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0"/>
+
+    <path
+        android:name="target_bullseye"
+        android:fillColor="#FF8C5A"
+        android:pathData="M140,140 m-8,0 a8,8 0 1,1 16,0 a8,8 0 1,1 -16,0"/>
+
+    <!-- Arrow -->
+    <path
+        android:name="arrow_head"
+        android:fillColor="#FF8C5A"
+        android:pathData="M200,100 L180,120 L190,130 L210,110 L200,100 Z"/>
+
+    <path
+        android:name="arrow_line"
+        android:strokeWidth="3"
+        android:strokeColor="#FF8C5A"
+        android:strokeLineCap="round"
+        android:pathData="M190,130 L170,150"/>
+
+    <!-- Checklist -->
+    <path
+        android:name="checklist_box"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:fillColor="#00000000"
+        android:pathData="M60,80 L80,80 L80,100 L60,100 Z"/>
+
+    <path
+        android:name="checkmark"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:strokeLineCap="round"
+        android:pathData="M65,90 L70,95 L78,85"/>
+
+    <!-- Stars -->
+    <path
+        android:name="star"
+        android:fillColor="#FFD6B0"
+        android:fillAlpha="0.8"
+        android:pathData="M100,220 L102,226 L108,226 L103,230 L105,236 L100,232 L95,236 L97,230 L92,226 L98,226 Z"/>
+</vector>

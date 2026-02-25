@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="280dp"
+    android:height="280dp"
+    android:viewportWidth="280"
+    android:viewportHeight="280">
+
+    <!-- Background Circle -->
+    <path
+        android:name="background_circle"
+        android:fillColor="#252A45"
+        android:pathData="M140,140 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"/>
+
+    <!-- Two People -->
+    <path
+        android:name="person1_head"
+        android:fillColor="#FF8C5A"
+        android:pathData="M100,100 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0"/>
+
+    <path
+        android:name="person2_head"
+        android:fillColor="#4A6FA5"
+        android:pathData="M180,100 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0"/>
+
+    <!-- Bodies -->
+    <path
+        android:name="person1_body"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M100,120 L100,160"/>
+
+    <path
+        android:name="person2_body"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M180,120 L180,160"/>
+
+    <!-- Heart Symbol -->
+    <path
+        android:name="heart"
+        android:fillColor="#FF8C5A"
+        android:pathData="M140,130 C130,115 110,115 110,130 C110,145 140,165 140,165 C140,165 170,145 170,130 C170,115 150,115 140,130 Z"/>
+
+    <!-- Decorative Elements -->
+    <path
+        android:name="decorative_circle_1"
+        android:fillColor="#FF8C5A"
+        android:fillAlpha="0.3"
+        android:pathData="M60,200 m-10,0 a10,10 0 1,1 20,0 a10,10 0 1,1 -20,0"/>
+
+    <path
+        android:name="decorative_circle_2"
+        android:fillColor="#4A6FA5"
+        android:fillAlpha="0.2"
+        android:pathData="M220,200 m-15,0 a15,15 0 1,1 30,0 a15,15 0 1,1 -30,0"/>
+
+    <!-- Connection Lines -->
+    <path
+        android:name="connection_line_1"
+        android:strokeWidth="2"
+        android:strokeColor="#FF8C5A"
+        android:strokeAlpha="0.5"
+        android:pathData="M80,180 L100,160"/>
+
+    <path
+        android:name="connection_line_2"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:strokeAlpha="0.5"
+        android:pathData="M200,180 L180,160"/>
+</vector>

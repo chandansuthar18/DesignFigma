@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="180dp"
+    android:viewportWidth="180"
+    android:viewportHeight="180">
+
+    <!-- Background Circle -->
+    <path
+        android:name="background_circle"
+        android:fillColor="#252A45"
+        android:pathData="M90,90 m-75,0 a75,75 0 1,1 150,0 a75,75 0 1,1 -150,0"/>
+
+    <!-- User Avatar -->
+    <path
+        android:name="user_head"
+        android:fillColor="#FF8C5A"
+        android:pathData="M90,70 m-25,0 a25,25 0 1,1 50,0 a25,25 0 1,1 -50,0"/>
+
+    <!-- User Body -->
+    <path
+        android:name="user_body"
+        android:strokeWidth="5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M90,95 L90,140"/>
+
+    <!-- Arms -->
+    <path
+        android:name="user_arms"
+        android:strokeWidth="4"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:pathData="M70,115 L90,110 L110,115"/>
+
+    <!-- Shield/Protection -->
+    <path
+        android:name="shield"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:fillColor="#00000000"
+        android:pathData="M90,45 L110,55 L110,80 L90,95 L70,80 L70,55 L90,45 Z"/>
+
+    <!-- Lock Icon -->
+    <path
+        android:name="lock_body"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:pathData="M90,65 L90,75"/>
+
+    <path
+        android:name="lock_shackle"
+        android:strokeWidth="2"
+        android:strokeColor="#4A6FA5"
+        android:fillColor="#00000000"
+        android:pathData="M90,62 m-6,0 a6,6 0 1,1 12,0 a6,6 0 1,1 -12,0"/>
+
+    <!-- Decorative Dots -->
+    <path
+        android:name="decorative_dot_1"
+        android:fillColor="#FF8C5A"
+        android:fillAlpha="0.3"
+        android:pathData="M40,140 m-5,0 a5,5 0 1,1 10,0 a5,5 0 1,1 -10,0"/>
+
+    <path
+        android:name="decorative_dot_2"
+        android:fillColor="#4A6FA5"
+        android:fillAlpha="0.2"
+        android:pathData="M140,40 m-8,0 a8,8 0 1,1 16,0 a8,8 0 1,1 -16,0"/>
+</vector>
