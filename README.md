@@ -17,7 +17,7 @@ Asynchronous Flow: Kotlin Coroutines & StateFlow
 Dependency Injection: ViewModelProvider / viewModel()
 
     
-    Logic Implementation
+Logic Implementation
 1. Milestone Synchronization
 We implemented a strict success-callback pattern to ensure milestones behave predictably:
 Display: A ValueEventListener monitors the milestones node to keep the UI updated.
