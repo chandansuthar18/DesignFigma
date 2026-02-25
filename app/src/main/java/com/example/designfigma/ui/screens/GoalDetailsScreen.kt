@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.designfigma.model.Milestone
 import com.example.designfigma.viewmodel.GoalDetailsViewModel
 
 @Composable
@@ -27,23 +28,20 @@ fun GoalDetailsScreen(
     onBackClick: () -> Unit
 ) {
     var selectedTab by remember { mutableIntStateOf(0) }
-    val tabs = listOf("Milestones", "Chat")
+    val goalData by viewModel.goal.collectAsState()
+    val milestones by viewModel.milestones.collectAsState()
 
-    // Fetch data when screen opens
     LaunchedEffect(goalId) {
         viewModel.fetchGoalDetails(creatorId, goalId)
     }
 
-    val goalData by viewModel.goal.collectAsState()
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-    ) {
-        // --- Dynamic Header Section ---
+    Column(modifier = Modifier.fillMaxSize().background(Color.White)) {
+        // --- Header Section ---
         Column(modifier = Modifier.padding(24.dp)) {
-            Spacer(modifier = Modifier.height(20.dp))
+            TextButton(onClick = onBackClick, contentPadding = PaddingValues(0.dp)) {
+                Text("< Back", color = Color.Gray)
+            }
+            Spacer(modifier = Modifier.height(10.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -56,14 +54,10 @@ fun GoalDetailsScreen(
                         fontWeight = FontWeight.Bold,
                         color = Color(0xFF555555)
                     )
-                    Text(
-                        text = "With $creatorName",
-                        fontSize = 14.sp,
-                        color = Color.Gray
-                    )
+                    Text(text = "With $creatorName", fontSize = 14.sp, color = Color.Gray)
                 }
                 Text(
-                    text = "Deadline: ${goalData?.deadline ?: ""}",
+                    text = "Deadline: ${goalData?.deadline ?: "N/A"}",
                     color = Color(0xFFD67A7A),
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold
@@ -75,13 +69,12 @@ fun GoalDetailsScreen(
             modifier = Modifier.fillMaxSize(),
             shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp),
             color = Color.White,
-            shadowElevation = 20.dp
+            shadowElevation = 8.dp
         ) {
             Column {
                 TabRow(
                     selectedTabIndex = selectedTab,
                     containerColor = Color.Transparent,
-                    contentColor = Color.Black,
                     indicator = { tabPositions ->
                         TabRowDefaults.SecondaryIndicator(
                             Modifier.tabIndicatorOffset(tabPositions[selectedTab]),
@@ -89,24 +82,21 @@ fun GoalDetailsScreen(
                         )
                     }
                 ) {
-                    tabs.forEachIndexed { index, title ->
+                    listOf("Milestones", "Chat").forEachIndexed { index, title ->
                         Tab(
                             selected = selectedTab == index,
                             onClick = { selectedTab = index },
-                            text = {
-                                Text(
-                                    title,
-                                    color = if (selectedTab == index) Color.Black else Color.LightGray
-                                )
-                            }
+                            text = { Text(title, color = if (selectedTab == index) Color.Black else Color.LightGray) }
                         )
                     }
                 }
 
                 if (selectedTab == 0) {
-                    MilestonesList()
+                    MilestonesList(
+                        milestones = milestones,
+                        onToggle = { milestone -> viewModel.toggleCheck(creatorId, goalId, milestone) }
+                    )
                 } else {
-                    // Chat Placeholder
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         Text("Chat with $creatorName coming soon!", color = Color.Gray)
                     }
@@ -115,8 +105,9 @@ fun GoalDetailsScreen(
         }
     }
 }
+
 @Composable
-fun MilestonesList() {
+fun MilestonesList(milestones: List<Milestone>, onToggle: (Milestone) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -124,59 +115,62 @@ fun MilestonesList() {
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val milestoneData = listOf(
-            Triple("Day 1", 1f, Color(0xFF8E6E96)),
-            Triple("Day 2", 1f, Color(0xFFC77878)),
-            Triple("Day 3", 1f, Color(0xFFFFB74D)),
-            Triple("Day 4", 0.5f, Color(0xFFB8860B)),
-            Triple("Day 5", 0f, Color.LightGray),
-            Triple("Day 6", 0f, Color.LightGray),
-            Triple("Day 7", 0f, Color.LightGray),
-            Triple("Day 8", 0f, Color.LightGray)
-        )
-
-        milestoneData.forEach { (day, progress, color) ->
-            MilestoneItem(day, progress, color)
+        milestones.forEach { milestone ->
+            MilestoneItem(
+                day = "Day ${milestone.dayNumber}",
+                userAChecked = milestone.userAChecked,
+                userBChecked = milestone.userBChecked,
+                onCheckClick = { onToggle(milestone) }
+            )
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "— Something remaining —", color = Color.Gray, fontSize = 14.sp)
-        Spacer(modifier = Modifier.height(20.dp))
-
-        Button(
-            onClick = { /* Add logic */ },
-            modifier = Modifier.fillMaxWidth().height(60.dp),
-            shape = RoundedCornerShape(30.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88D1D1))
-        ) {
-            Text("Add a new Milestone", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        if (milestones.isEmpty()) {
+            CircularProgressIndicator(modifier = Modifier.padding(20.dp), color = Color(0xFF88D1D1))
         }
-        Spacer(modifier = Modifier.height(40.dp))
+
+        Spacer(modifier = Modifier.height(20.dp))
+        Text(text = "— Progress updates automatically —", color = Color.LightGray, fontSize = 12.sp)
     }
 }
 
 @Composable
-fun MilestoneItem(day: String, progress: Float, color: Color) {
+fun MilestoneItem(
+    day: String,
+    userAChecked: Boolean,
+    userBChecked: Boolean,
+    onCheckClick: () -> Unit
+) {
+    val progress = when {
+        userAChecked && userBChecked -> 1f
+        userAChecked || userBChecked -> 0.5f
+        else -> 0f
+    }
+
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(text = day, fontSize = 14.sp, fontWeight = FontWeight.Bold, color = Color(0xFF555555))
-        Spacer(modifier = Modifier.height(8.dp))
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            LinearProgressIndicator(
-                progress = progress,
-                modifier = Modifier.weight(1f).height(10.dp).clip(RoundedCornerShape(10.dp)),
-                color = color,
-                trackColor = Color(0xFFEEEEEE)
-            )
-            Spacer(modifier = Modifier.width(12.dp))
-            // Logic for Emoji or Percentage
-            if (progress == 1f) {
-                Text(text = "😊", fontSize = 18.sp)
-            } else if (progress > 0f) {
-                Text(text = "${(progress * 100).toInt()}%", color = Color(0xFFD67A7A), fontSize = 12.sp, fontWeight = FontWeight.Bold)
-            } else {
-                Text(text = "0%", color = Color(0xFFD67A7A), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = day, fontWeight = FontWeight.Bold, color = Color(0xFF555555))
+
+            IconButton(onClick = onCheckClick) {
+                Text(
+                    text = if (progress == 1f) "😊" else if (progress == 0.5f) "🤔" else "⬜",
+                    fontSize = 22.sp
+                )
             }
         }
+
+        LinearProgressIndicator(
+            progress = progress,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(10.dp)
+                .clip(RoundedCornerShape(10.dp)),
+            color = if (progress == 1f) Color(0xFF88D1D1) else Color(0xFFFFB74D),
+            trackColor = Color(0xFFEEEEEE)
+        )
     }
 }

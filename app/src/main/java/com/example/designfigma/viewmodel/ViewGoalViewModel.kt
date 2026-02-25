@@ -78,6 +78,7 @@ class ViewGoalViewModel : ViewModel() {
         })
     }
 
+
     fun markAsAchieved(goalId: String) {
         val uid = auth.currentUser?.uid ?: return
         database.child(uid).child("goals").child(goalId).child("achieved").setValue(true)
