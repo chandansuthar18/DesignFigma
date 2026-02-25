@@ -16,18 +16,6 @@ Database: Firebase Realtime Database
 Asynchronous Flow: Kotlin Coroutines & StateFlow
 Dependency Injection: ViewModelProvider / viewModel()
 
-🏗 Project Architecture
-Plaintext
-com.example.designfigma
-├── model
-│   ├── GoalData.kt    # Goal header (Title, Deadline)
-│   ├── Milestone.kt   # Progress tracking (User A/B checks, Day Number)
-│   └── Message.kt     # Chat data (SenderId, Text, Timestamp)
-├── ui
-│   └── screens
-│       └──   All Ui Screens
-└── viewmodel
-    └── all VM files     # The "Brain": Handles sync & progression
     
     Logic Implementation
 1. Milestone Synchronization
