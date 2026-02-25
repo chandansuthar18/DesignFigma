@@ -6,7 +6,6 @@ Collaborative Milestones: Track progress day-by-day. Progress bars update to 50%
 Smart Progression: Next-day milestones are generated automatically and strictly once the current day is 100% complete.
 Real-Time Chat: Integrated chat tab specific to each goal, allowing partners to motivate each other without leaving the app.
 Real-Time Sync: Powered by Firebase Realtime Database; changes made by one user reflect instantly on the partner's screen.
-Conflict Prevention: Backend-side logic prevents the "duplicate day" bug, even during simultaneous check-ins.
 
 🛠 Tech Stack
 UI: Jetpack Compose (Material 3)
